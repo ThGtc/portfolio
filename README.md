@@ -1,0 +1,1 @@
+Personnal portfolio built w/ Next.JS & Tailwind CSS
