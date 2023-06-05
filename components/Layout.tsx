@@ -4,6 +4,7 @@ import {Header} from "./Header";
 import {Footer} from "./Footer";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import FadeInSection from "@/components/animations/FadeInOnInit";
 
 const name = 'Thibaut';
 export const siteTitle = 'Thibaut Gentric | ';
@@ -49,12 +50,14 @@ export const Layout = ({children, meta, home}: {
             </Head>
             <main className="container max-w-6xl mx-auto px-4 min-h-screen">
                 <Header/>
-                <main className="z-0">{children}</main>
-                {!home && (
-                    <div className="max-w-6xl  mx-auto px-4 py-10 md:py-20">
-                        <Link href="/">← Retour</Link>
-                    </div>
-                )}
+                <FadeInSection>
+                    <main className="z-0">{children}</main>
+                    {!home && (
+                        <div className="max-w-6xl  mx-auto px-4 py-10 md:py-20">
+                            <Link href="/">← Retour</Link>
+                        </div>
+                    )}
+                </FadeInSection>
                 <Footer/>
             </main>
         </>

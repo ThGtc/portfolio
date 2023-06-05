@@ -17,22 +17,27 @@ const onBtnClick = () => {
 
 export default function Hero() {
     return (
-        <section className="max-w-3xl mx-auto pt-20 sm:h-[75vh] px-4" id='landingArea'>
-
+        <section className="max-w-3xl mx-auto pt-10 sm:pt-15 min-h-screen sm:min-h-[75vh] px-4" id='landingArea'>
             <div className="dark:text-gray-300 max-w-2xl">
                 <p className="text-4xl lg:text-5xl lg:leading-normal">
                     Hello there 👋 {/* General Kenobi */}
                 </p>
 
                 <p className="text-center text-xl py-10 italic font-semibold dark:text-gray-400">
-                    Parti d&apos;un apprentissage solo au développement web, j&apos;ai ensuite été formé à l&apos;ENI de
-                    Rennes, où
-                    j&apos;y ai renforcé ma mes connaissances en programmation au travers de différentes technologies.
+                    Parti d&apos;une démarche d&apos;apprentissage du développement web en
+                    autonomie, j&apos;ai par la suite renforcé mes connaissances en programmation en intégrant l&apos;ENI
+                    de Rennes, où j&apos;y ai affiné mes compétences sur de multiples technologies.
                     <br/>
                 </p>
                 <ContactCompo/>
                 <p className="text-center text-xl py-10 italic font-semibold dark:text-gray-400">
-                    <button onClick={onBtnClick} className="pt-5 text-6xl">⬇</button>
+                    <button onClick={onBtnClick} className="pt-5 text-4xl sm:text-6xl inline after:">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                             className="bi bi-arrow-down animate-bounce" viewBox="0 0 16 16">
+                            <path fillRule="evenodd"
+                                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </button>
                 </p>
             </div>
             <div
