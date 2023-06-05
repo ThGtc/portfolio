@@ -4,9 +4,13 @@ import React from "react";
 import Link from "next/link";
 import GithubLogo from "@/public/GitHub.png";
 import {githubOdinProject} from "@/components/HideThoseLinks";
+import {useCardModal} from "@/components/animations/CardsModal";
+import {animated} from "react-spring";
 
 export default function OdinProject() {
-    const [showModal, setShowModal] = React.useState(false);
+
+    const {showModal, openCard, toggleCard, openModal, handleOverlayClick} = useCardModal();
+
     return (
         <>
             <div
@@ -25,7 +29,7 @@ export default function OdinProject() {
                     <button
                         type="button"
                         className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 mb-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                        onClick={() => setShowModal(true)}>
+                        onClick={() => openModal()}>
                         <p className='text-gray-700 dark:text-gray-400'>+ d&apos;infos</p>
                     </button>
                 </div>
@@ -41,8 +45,12 @@ export default function OdinProject() {
 
             {showModal ? (
                 <>
-                    <div
-                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    <animated.div
+                        className={`justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 max-h-full outline-none focus:outline-none`}
+                        onClick={handleOverlayClick}
+                        style={{
+                            ...openCard,
+                        }}
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
                             <div
@@ -54,7 +62,7 @@ export default function OdinProject() {
                                         </h4>
                                         <button
                                             className="text-red-500 background-transparent font-bold uppercase text-3xl px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                            onClick={() => setShowModal(false)}
+                                            onClick={toggleCard}
                                         >
                                             ×
                                         </button>
@@ -99,14 +107,14 @@ export default function OdinProject() {
                                     <button
                                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"
-                                        onClick={() => setShowModal(false)}
+                                        onClick={toggleCard}
                                     >
                                         Fermer
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </animated.div>
                     <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
                 </>
             ) : null}

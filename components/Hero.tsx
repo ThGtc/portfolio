@@ -17,16 +17,19 @@ const onBtnClick = () => {
 
 export default function Hero() {
     return (
-        <section className="max-w-3xl mx-auto pt-10 sm:pt-15 min-h-screen sm:min-h-[75vh] px-4" id='landingArea'>
+        <section className="max-w-3xl mx-auto pt-2 min-h-screen sm:min-h-fit px-4" id="landingArea">
             <div className="dark:text-gray-300 max-w-2xl">
-                <p className="text-4xl lg:text-5xl lg:leading-normal">
+                <p className="text-3xl lg:text-5xl lg:leading-normal">
                     Hello there 👋 {/* General Kenobi */}
                 </p>
 
-                <p className="text-center text-xl py-10 italic font-semibold dark:text-gray-400">
-                    Parti d&apos;une démarche d&apos;apprentissage du développement web en
-                    autonomie, j&apos;ai par la suite renforcé mes connaissances en programmation en intégrant l&apos;ENI
-                    de Rennes, où j&apos;y ai affiné mes compétences sur de multiples technologies.
+                <p className="text-center text-lg py-10 italic font-semibold dark:text-gray-400 sm:text-xl">
+                    Après une phase d&apos;apprentissage autonome du développement web, j&apos;ai
+                    rejoint l&apos;ENI de Rennes, me permettant de faire évoluer
+                    mes compétences en programmation.
+                    <br/>
+                    Souhaitant poursuivre ce parcours, je suis à la recherche d&apos;une alternance pour un an
+                    afin de me perfectionner sur la stack Java/Angular.
                     <br/>
                 </p>
                 <ContactCompo/>
