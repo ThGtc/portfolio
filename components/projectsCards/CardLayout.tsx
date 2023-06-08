@@ -52,10 +52,10 @@ export const CardLayout = ({children}: {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             //className="bg-white border border-gray-200  rounded-lg shadow  hover:bg-gray-100">
-            className='relative grid grid-rows-[0.25fr_1fr_0.5fr] overflow-scroll md:flex-row md:max-w-xl no-scrollbar rounded-xl border border-gray-200 dark:border-slate-800 bg-gradient-to-r dark:from-gray-800 dark:to-slate-900 from-gray-100 to-slate-200 shadow-2xl'
+            className='relative grid grid-rows-[0.25fr_1fr_0.5fr] overflow-hidden md:flex-row md:max-w-xl no-scrollbar rounded-xl border border-gray-200 dark:border-slate-800 bg-gradient-to-r dark:from-gray-800 dark:to-slate-900 from-gray-100 to-slate-200 shadow-2xl'
         >
             <div
-                className='pointer-events-none absolute -inset-px opacity-0 transition duration-300'
+                className='pointer-events-none absolute -inset-px opacity-0 transition duration-300 overflow-hidden'
                 style={{
                     opacity,
                     background: isDarkMode

@@ -21,7 +21,7 @@ export default function EniSortirProject() {
                         src={SortirLogo} alt={'Sortir'} title={'Sortir'}
                     />
                 </div>
-                <div className="px-6 py-4 grid">
+                <div className="px-6 py-4 grid overflow-scroll">
                     <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         ENI x Sorties
                     </h3>
