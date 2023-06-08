@@ -12,7 +12,7 @@ const title = siteTitle + "Développeur";
 const onBtnClick = () => {
     const landingArea = document.getElementById('landingArea');
     if (landingArea) {
-        const offsetTop = landingArea.offsetTop - 200;
+        const offsetTop = landingArea.offsetTop - 300;
         scroll.scrollTo(offsetTop);
     }
 };

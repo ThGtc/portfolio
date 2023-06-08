@@ -2,6 +2,8 @@ import {Inter} from 'next/font/google'
 import {siteTitle} from '@/components/Layout'
 import {animateScroll as scroll} from 'react-scroll';
 import ContactCompo from "@/components/Contact";
+import Link from "next/link";
+import {eniLevelUpLink} from "@/components/HideThoseLinks";
 
 
 const inter = Inter({subsets: ['latin']})
@@ -17,19 +19,22 @@ const onBtnClick = () => {
 
 export default function Hero() {
     return (
-        <section className="max-w-3xl mx-auto pt-2 min-h-screen sm:min-h-fit px-4" id="landingArea">
+        <section
+            className="max-w-3xl mx-auto pt-2 min-h-screen sm:min-h-fit px-4"
+            id="landingArea">
             <div className="dark:text-gray-300 max-w-2xl">
                 <p className="text-3xl lg:text-5xl lg:leading-normal">
                     Hello there 👋 {/* General Kenobi */}
                 </p>
 
-                <p className="text-center text-lg py-10 italic font-semibold dark:text-gray-400 sm:text-xl">
-                    Après une phase d&apos;apprentissage autonome du développement web, j&apos;ai
-                    rejoint l&apos;ENI de Rennes, me permettant de faire évoluer
-                    mes compétences en programmation.
-                    <br/>
-                    Souhaitant poursuivre ce parcours, je suis à la recherche d&apos;une alternance pour un an
-                    afin de me perfectionner sur la stack Java/Angular.
+                <p className="text-center text-lg py-7 italic font-semibold dark:text-gray-400 sm:text-xl">
+                    Après m&apos;être initié au développement web en autonomie, j&apos;ai
+                    intégré l&apos;ENI de Rennes pour renforcer mes compétences en programmation.
+                    <br/> <br/>
+                    Souhaitant y poursuivre ma progression en
+                    tant que <Link className="underline" href={eniLevelUpLink} target={"_blank"}>Concepteur Développeur d&apos;Applications</Link>, je
+                    suis à la recherche d&apos;une opportunité d&apos;alternance d&apos;une durée d&apos;un an
+                    afin de me spécialiser dans la stack Java/Angular.
                     <br/>
                 </p>
                 <ContactCompo/>

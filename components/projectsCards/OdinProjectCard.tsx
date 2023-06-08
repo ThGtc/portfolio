@@ -6,6 +6,7 @@ import GithubLogo from "@/public/GitHub.png";
 import {githubOdinProject} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
 import {animated} from "react-spring";
+import {CardLayout} from "@/components/projectsCards/CardLayout";
 
 export default function OdinProject() {
 
@@ -13,12 +14,13 @@ export default function OdinProject() {
 
     return (
         <>
-            <div
-                className="no-scrollbar bg-white border border-gray-200 grid grid-rows-[0.25fr_1fr_0.5fr] rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-scroll">
-                <Image
-                    className="w-24 h-24 m-3 rounded-full shadow-lg"
-                    src={OdinLogo} alt={'Odin Project'} title={'Odin Project'}
-                />
+            <CardLayout>
+                <div>
+                    <Image
+                        className="w-24 h-24 m-3 rounded-full shadow-lg"
+                        src={OdinLogo} alt={'Odin Project'} title={'Odin Project'}
+                    />
+                </div>
                 <div className="px-6 py-4 grid">
                     <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Odin Project
@@ -41,7 +43,7 @@ export default function OdinProject() {
                     <span
                         className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Vanilla JS</span>
                 </div>
-            </div>
+            </CardLayout>
 
             {showModal ? (
                 <>
@@ -54,7 +56,7 @@ export default function OdinProject() {
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
                             <div
-                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-gray-800">
+                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                 <div className="p-5 border-b border-solid border-slate-200 rounded-t">
                                     <div className="flex items-start justify-between">
                                         <h4 className="text-3xl font-semibold">
@@ -119,6 +121,5 @@ export default function OdinProject() {
                 </>
             ) : null}
         </>
-
     )
 }

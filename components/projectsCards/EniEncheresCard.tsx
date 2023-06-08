@@ -6,6 +6,7 @@ import GithubLogo from "@/public/GitHub.png";
 import {githubEncheres} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
 import {animated} from "react-spring";
+import {CardLayout} from "@/components/projectsCards/CardLayout";
 
 export default function EniEncheresProject() {
 
@@ -13,12 +14,13 @@ export default function EniEncheresProject() {
 
     return (
         <>
-            <div
-                className="no-scrollbar bg-white border border-gray-200 rounded-lg grid grid-rows-[0.25fr_1fr_0.5fr] shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-scroll">
-                <Image
-                    className="w-24 h-24 m-3 rounded-full shadow-lg"
-                    src={EncheresLogo} alt={'Enchères'} title={'Enchères'}
-                />
+            <CardLayout>
+                <div>
+                    <Image
+                        className="w-24 h-24 m-3 rounded-full shadow-lg"
+                        src={EncheresLogo} alt={'Enchères'} title={'Enchères'}
+                    />
+                </div>
                 <div className="px-6 py-4 grid">
                     <h3 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                         ENI x Enchères
@@ -43,7 +45,7 @@ export default function EniEncheresProject() {
                     <span
                         className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Bootstrap</span>
                 </div>
-            </div>
+            </CardLayout>
 
             {showModal ? (
                 <>
@@ -56,7 +58,7 @@ export default function EniEncheresProject() {
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-3xl max-h-full">
                             <div
-                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-gray-800">
+                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                 <div className="p-5 border-b border-solid border-slate-200 rounded-t">
                                     <div className="flex items-start justify-between">
                                         <h4 className="text-3xl font-semibold">
