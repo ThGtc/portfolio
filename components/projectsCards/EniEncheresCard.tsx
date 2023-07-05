@@ -21,7 +21,7 @@ export default function EniEncheresProject() {
                         src={EncheresLogo} alt={'Enchères'} title={'Enchères'}
                     />
                 </div>
-                <div className="px-6 py-4 grid overflow-scroll">
+                <div className="px-6 py-4 grid overflow-scroll no-scrollbar">
                     <h3 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                         ENI x Enchères
                     </h3>

@@ -21,7 +21,7 @@ export default function SportsProject() {
                         src={SportsLogo} alt={'Sports logo'} title={'Sports app'}
                     />
                 </div>
-                <div className="px-6 py-4 grid overflow-scroll">
+                <div className="px-6 py-4 grid overflow-scroll no-scrollbar">
                     <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Sports App
                     </h3>
