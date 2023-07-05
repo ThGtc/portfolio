@@ -11,6 +11,8 @@ export default function Projects() {
                 home={false}
                 meta={{
                     title: title,
+                    robots: "noindex",
+                    googlebot : "noindex",
                 }}
             >
                 <ProjectsCompo/>

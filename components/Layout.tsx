@@ -15,34 +15,20 @@ export const Layout = ({children, meta, home}: {
     home?: boolean
     meta?: any
 }) => {
-    const {title, description, icon} = meta;
+    const {title, description, icon, googlebot, robots} = meta;
     const router = useRouter();
     return (
         <>
             <Head>
                 <title>{title}</title>
-                <meta name="robots" content="follow, index"/>
-                <meta name="description" content={description}/>
-                <meta
-                    property="og:url"
-                    content={`https://futureadresse.dev${router.asPath}`}
-                />
+                <meta name="description" content="Portfolio de Thibaut Gentric, développeur fullstack avec une appétence pour le back-end et le Java. Made in Rennes, Bretagne."/>
+                <meta name="robots" content={robots}/>
+                <meta name="googlebot" content={googlebot}/>
                 <link rel="icon" href={icon || "/favicon.ico"}/>
                 <link
                     rel="canonical"
-                    href={`https://futureadresse.dev${router.asPath}`}
+                    href={`https://thibaut-gentric.dev${router.asPath}`}
                 />
-                <meta property="og:type" content={meta.type}/>
-                <meta property="og:site_name" content="Thibaut Gentric"/>
-                <meta property="og:description" content={meta.description}/>
-                <meta property="og:title" content={meta.title}/>
-                <meta property="og:image" content={meta.image}/>
-                <meta name="twitter:title" content={meta.title}/>
-                <meta name="twitter:description" content={meta.description}/>
-                <meta name="twitter:image" content={meta.image}/>
-                {meta.date && (
-                    <meta property="article:published_time" content={meta.date}/>
-                )}
                 <noscript>
                     <p className='text-center text-2xl italic'>C&apos;est mieux d&apos;avoir JS activé pour voir tous
                         les détails du site :)</p>

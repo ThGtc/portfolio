@@ -22,7 +22,8 @@ export default function Home() {
         <Layout home
                 meta={{
                     title: title,
-                    description: "Développeur web, Rennes, Bretagne.",
+                    robots: "nofollow, index",
+                    googlebot: "index"
                 }}>
 
             <Hero/>

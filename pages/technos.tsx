@@ -11,6 +11,8 @@ export default function Technos() {
                 home={false}
                 meta={{
                     title: title,
+                    robots: "noindex",
+                    googlebot : "noindex",
                 }}
             >
                 <section id='about' className="max-w-3xl mx-auto pt-3 px-4">
