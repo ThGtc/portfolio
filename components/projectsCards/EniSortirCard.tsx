@@ -5,12 +5,19 @@ import Link from "next/link";
 import GithubLogo from "@/public/GitHub.png";
 import {githubSortir} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
-import {animated} from "react-spring";
+import { animated } from "react-spring";
 import {CardLayout} from "@/components/projectsCards/CardLayout";
+import Accueil from "@/public/screens_apps/sorties/Sortir_login.png"
+import ListeSorties from "@/public/screens_apps/sorties/Sortir_listesorties.png"
+import NvleSortie from "@/public/screens_apps/sorties/Sortir_creationsortie.png"
+import NvleSortieCree from "@/public/screens_apps/sorties/Sortir_sortienouvelle.png"
+import Carousel from "@/components/animations/Carousel/Carousel";
 
 export default function EniSortirProject() {
 
-    const {showModal, openCard, toggleCard, openModal, handleOverlayClick} = useCardModal();
+    const images = [Accueil, ListeSorties, NvleSortie, NvleSortieCree];
+
+    const { showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick } = useCardModal();
 
     return (
         <>
@@ -54,77 +61,89 @@ export default function EniSortirProject() {
                             ...openCard,
                         }}
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-3xl max-h-full">
-                            <div
-                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
-                                <div className="p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <div className="flex items-start justify-between">
-                                        <h4 className="text-3xl font-semibold">
-                                            ENI x Sorties
-                                        </h4>
+                        <div className="relative w-auto my-6 mx-auto max-w-5xl max-h-full">
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
+                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
+                                    <Carousel loop>
+                                        {images.map((src, i) => {
+                                            return (
+                                                <div className={'relative h-[30rem] w-28 flex-[0_0_100%]'} key={i}>
+                                                    <Image src={src} fill className="object-cover" alt="alt"/>
+                                                </div>
+                                            );
+                                        })}
+                                    </Carousel>
+                                </div>
+                                <div
+                                    className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
+                                    <div className="p-5 border-b border-solid border-slate-200 rounded-t">
+                                        <div className="flex items-start justify-between">
+                                            <h4 className="text-3xl font-semibold">
+                                                ENI x Sorties
+                                            </h4>
+                                            <button
+                                                className="text-red-500 background-transparent font-bold uppercase text-3xl px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                onClick={toggleCard}
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                        <p className="italic font-semibold dark:text-gray-400">
+                                            Projet #2 de formation - février 2023 (2 sem, en équipe de 3)
+                                        </p>
+                                    </div>
+
+                                    <div className="relative p-6 flex-auto">
+                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
+                                            Développement fullstack d&apos;un site pour organiser des sorties entre élèves :
+                                            <ol className="list-disc list-inside">
+                                                <li>Gestion des utilisateurs (connexion, &apos;se souvenir de moi&apos;,
+                                                    gestion/affichage des profils).
+                                                </li>
+                                                <li>Création, modification ou inscription à une sortie jusqu&apos;à
+                                                    une date limite ou nombre maximal de participants atteints.
+                                                </li>
+                                                <li>Filtre de la liste des sorties selon plusieurs paramètres : date, nombre
+                                                    de participants, lieux...
+                                                </li>
+                                                <li>Changement automatique du statut de la sortie : en création, ouverte aux
+                                                    inscription, complète, en cours, terminée.
+                                                </li>
+                                            </ol>
+                                            <br/>
+                                            <p className="text-2xl italic pb-2">Technos : </p>
+                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                                <p>PHP / Symfony</p>
+                                                <p>SQL / Doctrine ORM</p>
+                                                <p>HTML / Twig</p>
+                                                <p>CSS / Bootstrap</p>
+                                                <p>Vanilla JS</p>
+                                            </div>
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        className="flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
                                         <button
-                                            className="text-red-500 background-transparent font-bold uppercase text-3xl px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            className="background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-slate-700 dark:text-amber-100"
+                                            type="button"
+                                        >
+                                            <Link href={githubSortir} target="_blank"
+                                                  className="flex flex-row items-center gap-1">
+                                                Github
+                                                <Image src={GithubLogo} alt={"Github"} title={"Github"} height={48}
+                                                       width={48}/>
+                                            </Link>
+                                        </button>
+                                        <button
+                                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            type="button"
                                             onClick={toggleCard}
                                         >
-                                            ×
+                                            Fermer
                                         </button>
                                     </div>
-                                    <p className="italic font-semibold dark:text-gray-400">
-                                        Projet #2 de formation - février 2023 (2 sem, en équipe de 3)
-                                    </p>
                                 </div>
-
-                                <div className="relative p-6 flex-auto">
-                                    <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                        Développement fullstack d&apos;un site pour organiser des sorties entre élèves :
-                                        <ol className="list-disc list-inside">
-                                            <li>Gestion des utilisateurs (connexion, &apos;se souvenir de moi&apos;,
-                                                gestion/affichage des profils).
-                                            </li>
-                                            <li>Création, modification ou inscription à une sortie jusqu&apos;à
-                                                une date limite ou nombre maximal de participants atteints.
-                                            </li>
-                                            <li>Filtre de la liste des sorties selon plusieurs paramètres : date, nombre
-                                                de participants, lieux...
-                                            </li>
-                                            <li>Changement automatique du statut de la sortie : en création, ouverte aux
-                                                inscription, complète, en cours, terminée.
-                                            </li>
-                                        </ol>
-                                        <br/>
-                                        <p className="text-2xl italic pb-2">Technos : </p>
-                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                            <p>PHP / Symfony</p>
-                                            <p>SQL / Doctrine ORM</p>
-                                            <p>HTML / Twig</p>
-                                            <p>CSS / Bootstrap</p>
-                                            <p>Vanilla JS</p>
-                                        </div>
-                                    </p>
-                                </div>
-
-                                <div
-                                    className="flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
-                                    <button
-                                        className="background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-slate-700 dark:text-amber-100"
-                                        type="button"
-                                    >
-                                        <Link href={githubSortir} target="_blank"
-                                              className="flex flex-row items-center gap-1">
-                                            Github
-                                            <Image src={GithubLogo} alt={"Github"} title={"Github"} height={48}
-                                                   width={48}/>
-                                        </Link>
-                                    </button>
-                                    <button
-                                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button"
-                                        onClick={toggleCard}
-                                    >
-                                        Fermer
-                                    </button>
-                                </div>
-
                             </div>
                         </div>
                     </animated.div>

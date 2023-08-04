@@ -5,12 +5,19 @@ import Link from "next/link";
 import GitLabLogo from '@/public/GitLab.png'
 import {gitLabEasyAppointments} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
-import {animated} from "react-spring";
+import { animated } from "react-spring";
 import {CardLayout} from "@/components/projectsCards/CardLayout";
+import CalendrierRdv from "@/public/screens_apps/interhop/calendrier_couleurs_rdv.png"
+import CreationIndispo from "@/public/screens_apps/interhop/formulaire_indispo_warning.png"
+import CalendrierMobile from "@/public/screens_apps/interhop/planning_vue_mobile.png"
+import Carousel from "@/components/animations/Carousel/Carousel";
 
 export default function InterhopProject() {
 
-    const {showModal, openCard, toggleCard, openModal, handleOverlayClick} = useCardModal();
+    const images = [CalendrierRdv, CreationIndispo, CalendrierMobile];
+    const {showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick} = useCardModal();
+
+
 
     return (
         <>
@@ -54,83 +61,95 @@ export default function InterhopProject() {
                             ...openCard,
                         }}
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-3xl max-h-full">
-                            <div
-                                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
-                                <div className="p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <div className="flex items-start justify-between">
-                                        <h4 className="text-3xl font-semibold">
-                                            Interhop
-                                        </h4>
+                        <div className="relative w-auto my-6 mx-auto max-w-6xl max-h-full">
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
+                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
+                                    <Carousel loop>
+                                        {images.map((src, i) => {
+                                            return (
+                                                <div className={'relative h-[36rem] w-36 flex-[0_0_100%]'} key={i}>
+                                                    <Image src={src} fill className="object-cover" alt="alt"/>
+                                                </div>
+                                            );
+                                        })}
+                                    </Carousel>
+                                </div>
+                                <div
+                                    className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
+                                    <div className="p-5 border-b border-solid border-slate-200 rounded-t">
+                                        <div className="flex items-start justify-between">
+                                            <h4 className="text-3xl font-semibold">
+                                                Interhop
+                                            </h4>
+                                            <button
+                                                className="text-red-500 background-transparent font-bold uppercase text-3xl px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                onClick={toggleCard}
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                        <p className="italic font-semibold dark:text-gray-400">
+                                            Stage développeur web - mars 2023 → mai 2023
+                                        </p>
+                                    </div>
+
+                                    <div className="relative p-6 flex-auto">
+                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
+                                            Participation au fork de l&apos;outil de prise de
+                                            rendez-vous <Link href='https://easyappointments.org' target='_blank'
+                                                              className="underline">Easy!Appointments</Link> par <Link
+                                            href='https://interhop.org/' target='_blank'
+                                            className="underline">l&apos;association Interhop</Link>.<br/><br/>
+
+                                            Améliorations côté front (traductions, évolution de formulaires).<br/>
+                                            Création d&apos;une fonctionnalité &apos;imprévu&apos; permettant depuis un
+                                            agenda
+                                            d&apos;avoir la possibilité d&apos;annuler des rendez-vous sur une période
+                                            donnée :
+                                            <ol className="list-disc list-inside pl-2">
+                                                <li>Blocage de la période affectée dans le module de prise de rendez-vous.
+                                                </li>
+                                                <li>Génération puis envoi d&apos;un mail à chaque patient concerné, ou
+                                                    d&apos;un mail récapitulatif pour le personnel.
+                                                </li>
+                                                <li>Amélioration de l&apos;affichage du planning pour prendre en compte le
+                                                    statut du rendez-vous (mise à jour auto).
+                                                </li>
+                                            </ol>
+                                            <br/>
+                                            <p className="text-2xl italic pb-2">Technos : </p>
+                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                                <p>PHP / CodeIgniter</p>
+                                                <p>SQL</p>
+                                                <p>HTML</p>
+                                                <p>CSS / Bootstrap</p>
+                                                <p>JS / JQuery</p>
+                                            </div>
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        className="flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
                                         <button
-                                            className="text-red-500 background-transparent font-bold uppercase text-3xl px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            className="text-orange-700 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            type="button"
+                                        >
+                                            <Link href={gitLabEasyAppointments} target="_blank"
+                                                  className="flex flex-row items-center gap-1">
+                                                Gitlab
+                                                <Image src={GitLabLogo} alt={"Gitlab"} title={"GitLab"} height={48}
+                                                       width={48}/>
+                                            </Link>
+                                        </button>
+                                        <button
+                                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            type="button"
                                             onClick={toggleCard}
                                         >
-                                            ×
+                                            Fermer
                                         </button>
                                     </div>
-                                    <p className="italic font-semibold dark:text-gray-400">
-                                        Stage développeur web - mars 2023 → mai 2023
-                                    </p>
                                 </div>
-
-                                <div className="relative p-6 flex-auto">
-                                    <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                        Participation au fork de l&apos;outil de prise de
-                                        rendez-vous <Link href='https://easyappointments.org' target='_blank'
-                                                          className="underline">Easy!Appointments</Link> par <Link
-                                        href='https://interhop.org/' target='_blank'
-                                        className="underline">l&apos;association Interhop</Link>.<br/><br/>
-
-                                        Améliorations côté front (traductions, évolution de formulaires).<br/>
-                                        Création d&apos;une fonctionnalité &apos;imprévu&apos; permettant depuis un
-                                        agenda
-                                        d&apos;avoir la possibilité d&apos;annuler des rendez-vous sur une période
-                                        donnée :
-                                        <ol className="list-disc list-inside pl-2">
-                                            <li>Blocage de la période affectée dans le module de prise de rendez-vous.
-                                            </li>
-                                            <li>Génération puis envoi d&apos;un mail à chaque patient concerné, ou
-                                                d&apos;un mail récapitulatif pour le personnel.
-                                            </li>
-                                            <li>Amélioration de l&apos;affichage du planning pour prendre en compte le
-                                                statut du rendez-vous (mise à jour auto).
-                                            </li>
-                                        </ol>
-                                        <br/>
-                                        <p className="text-2xl italic pb-2">Technos : </p>
-                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                            <p>PHP / CodeIgniter</p>
-                                            <p>SQL</p>
-                                            <p>HTML</p>
-                                            <p>CSS / Bootstrap</p>
-                                            <p>JS / JQuery</p>
-                                        </div>
-                                    </p>
-                                </div>
-
-                                <div
-                                    className="flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b">
-                                    <button
-                                        className="text-orange-700 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button"
-                                    >
-                                        <Link href={gitLabEasyAppointments} target="_blank"
-                                              className="flex flex-row items-center gap-1">
-                                            Gitlab
-                                            <Image src={GitLabLogo} alt={"Gitlab"} title={"GitLab"} height={48}
-                                                   width={48}/>
-                                        </Link>
-                                    </button>
-                                    <button
-                                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button"
-                                        onClick={toggleCard}
-                                    >
-                                        Fermer
-                                    </button>
-                                </div>
-
                             </div>
                         </div>
                     </animated.div>
