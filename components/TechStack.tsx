@@ -43,42 +43,42 @@ export default class Tech extends Component<{ hideTitle: any }> {
                         </p>
 
                         <div className='grid grid-cols-5 text-center'>
-                            <div className='mx-auto flex-col md:grid grid-cols-2 gap-2'>
-                                <div>
-                                    <Image src={HTMLIcon} alt={'HTML'} title={'HTML'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={HTMLIcon} alt={'HTML'} title={'HTML'} width={48} height={48}/>
                                     <p className="text-sm">HTML</p>
                                 </div>
-                                <div>
-                                    <Image src={CSSIcon} alt={'CSS'} title={'CSS'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={CSSIcon} alt={'CSS'} title={'CSS'} width={48} height={48}/>
                                     <p className="text-sm">CSS</p>
                                 </div>
-                                <div>
-                                    <Image src={JSIcon} alt={'Javascript'} title={'Javascript'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={JSIcon} alt={'Javascript'} title={'Javascript'} width={48} height={48}/>
                                     <p className="text-sm">Javascript</p>
                                 </div>
-                                <div>
-                                    <Image src={TSIcon} alt={'Typescript'} title={'Typescript'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={TSIcon} alt={'Typescript'} title={'Typescript'} width={48} height={48}/>
                                     <p className="text-sm">Typescript</p>
                                 </div>
                             </div>
 
                             <div className="h-full w-0.5 bg-black dark:bg-gray-700 mx-auto"></div>
 
-                            <div className='mx-auto flex-col md:grid grid-cols-2 content-center gap-2'>
-                                <div>
-                                    <Image src={AngularIcon} alt={'Angular'} title={'Angular'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 content-center gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={AngularIcon} alt={'Angular'} title={'Angular'} width={48} height={48}/>
                                     <p className="text-sm">Angular</p>
                                 </div>
-                                <div>
-                                    <Image src={ReactIcon} alt={'React'} title={'React'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={ReactIcon} alt={'React'} title={'React'} width={48} height={48}/>
                                     <p className="text-sm">React</p>
                                 </div>
-                                <div>
-                                    <Image src={NextIcon} alt={'Next.JS'} title={'Next.JS'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={NextIcon} alt={'Next.JS'} title={'Next.JS'} width={48} height={48}/>
                                     <p className="text-sm">Next.JS</p>
                                 </div>
-                                <div>
-                                    <Image src={TailwindIcon} alt={'Tailwind CSS'} title={'Tailwind CSS'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={TailwindIcon} alt={'Tailwind CSS'} title={'Tailwind CSS'} width={48} height={48}/>
                                     <p className="text-sm">Tailwind CSS</p>
                                 </div>
 
@@ -86,21 +86,21 @@ export default class Tech extends Component<{ hideTitle: any }> {
 
                             <div className="h-full w-0.5 bg-black dark:bg-gray-700 mx-auto"></div>
 
-                            <div className='mx-auto flex-col md:grid grid-cols-2 gap-2'>
-                                <div>
-                                    <Image src={JavaIcon} alt={'Java'} title={'Java'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={JavaIcon} alt={'Java'} title={'Java'} width={48} height={48}/>
                                     <p className="text-sm">Java</p>
                                 </div>
-                                <div>
-                                    <Image src={PHPIcon} alt={'PHP'} title={'PHP'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={PHPIcon} alt={'PHP'} title={'PHP'} width={48} height={48}/>
                                     <p className="text-sm">PHP</p>
                                 </div>
-                                <div>
-                                    <Image src={SpringIcon} alt={'Spring'} title={'Spring'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={SpringIcon} alt={'Spring'} title={'Spring'} width={48} height={48}/>
                                     <p className="text-sm">Spring</p>
                                 </div>
-                                <div>
-                                    <Image src={Symfony} alt={'Symfony'} title={'Symfony'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={Symfony} alt={'Symfony'} title={'Symfony'} width={48} height={48}/>
                                     <p className="text-sm">Symfony</p>
                                 </div>
                             </div>
@@ -108,39 +108,39 @@ export default class Tech extends Component<{ hideTitle: any }> {
 
                         <div className='grid grid-cols-5 text-center mt-20'>
 
-                            <div className='mx-auto flex-col md:grid grid-cols-2 row-span-2 content-center gap-2'>
-                                <div>
-                                    <Image src={MySQLIcon} alt={'MySQL'} title={'MySQL'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 row-span-2 content-center gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={MySQLIcon} alt={'MySQL'} title={'MySQL'} width={48} height={48}/>
                                     <p className="text-sm">MySQL</p>
                                 </div>
-                                <div>
-                                    <Image src={SQLServIcon} alt={'MS SQL Server'} title={'MS SQL Server'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={SQLServIcon} alt={'MS SQL Server'} title={'MS SQL Server'} width={48} height={48}/>
                                     <p className="text-sm">SQL Server</p>
                                 </div>
                             </div>
 
                             <div className="h-auto w-0.5 bg-black dark:bg-gray-700 mx-auto grid row-span-2"></div>
 
-                            <div className='mx-auto flex-col md:grid grid-cols-2 row-span-2 content-center'>
-                                <div>
-                                    <Image src={GitHubLogo} alt={'GitHub'} title={'GitHub'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 row-span-2 content-center gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={GitHubLogo} alt={'GitHub'} title={'GitHub'} width={48} height={48}/>
                                     <p className="text-sm">Github</p>
                                 </div>
-                                <div>
-                                    <Image src={GitLabLogo} alt={'GitLab'} title={'GitLab'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={GitLabLogo} alt={'GitLab'} title={'GitLab'} width={48} height={48}/>
                                     <p className="text-sm">Gitlab</p>
                                 </div>
                             </div>
 
                             <div className="h-auto w-0.5 bg-black dark:bg-gray-700 mx-auto grid row-span-2"></div>
 
-                            <div className='mx-auto flex-col md:grid grid-cols-2 content-center gap-2'>
-                                <div>
-                                    <Image src={VSCodeIcon} alt={'Visual Studio Code'} title={'Visual Studio Code'}/>
+                            <div className='mx-auto flex-col md:grid grid-cols-2 content-center gap-5'>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={VSCodeIcon} alt={'Visual Studio Code'} title={'Visual Studio Code'} width={48} height={48}/>
                                     <p className="text-sm">VS Code</p>
                                 </div>
-                                <div>
-                                    <Image src={JetBrainsIcon} alt={'Jetbrains Suite'} title={'Jetbrains Suite'}/>
+                                <div className='flex flex-col items-center'>
+                                    <Image src={JetBrainsIcon} alt={'Jetbrains Suite'} title={'Jetbrains Suite'} width={48} height={48}/>
                                     <p className="text-sm">Suite Jetbrains</p>
                                 </div>
                             </div>
