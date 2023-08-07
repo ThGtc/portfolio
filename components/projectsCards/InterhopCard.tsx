@@ -5,19 +5,19 @@ import Link from "next/link";
 import GitLabLogo from '@/public/GitLab.png'
 import {gitLabEasyAppointments} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
-import { animated } from "react-spring";
+import {animated} from "react-spring";
 import {CardLayout} from "@/components/projectsCards/CardLayout";
 import CalendrierRdv from "@/public/screens_apps/interhop/calendrier_couleurs_rdv.png"
 import CreationIndispo from "@/public/screens_apps/interhop/formulaire_indispo_warning.png"
 import CalendrierMobile from "@/public/screens_apps/interhop/planning_vue_mobile.png"
 import Carousel from "@/components/animations/Carousel/Carousel";
+import {MobileCarousel} from "@/components/animations/Carousel/CarouselMobileModal"
 
 export default function InterhopProject() {
 
     const images = [CalendrierRdv, CreationIndispo, CalendrierMobile];
     const {showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick} = useCardModal();
-
-
+    const {carouselVisibility, carouselStyling, openMobileCarousel, handleToggle} = MobileCarousel();
 
     return (
         <>
@@ -48,7 +48,7 @@ export default function InterhopProject() {
                     <span
                         className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">CodeIgniter</span>
                     <span
-                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">JQuery</span>
+                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">jQuery</span>
                 </div>
             </CardLayout>
 
@@ -62,18 +62,25 @@ export default function InterhopProject() {
                         }}
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-6xl max-h-full">
-                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
-                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
+                                <animated.div
+                                    className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
+                                    style={{
+                                        ...openMobileCarousel,
+                                    }}
+                                >
                                     <Carousel loop>
                                         {images.map((src, i) => {
                                             return (
-                                                <div className={'relative h-[36rem] w-36 flex-[0_0_100%]'} key={i}>
+                                                <div
+                                                    className={'relative lg:h-[36rem] lg:w-36 flex-[0_0_100%] h-[24rem] w-24'}
+                                                    key={i}>
                                                     <Image src={src} fill className="object-cover" alt="alt"/>
                                                 </div>
                                             );
                                         })}
                                     </Carousel>
-                                </div>
+                                </animated.div>
                                 <div
                                     className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                     <div className="p-5 border-b border-solid border-slate-200 rounded-t">
@@ -94,6 +101,9 @@ export default function InterhopProject() {
                                     </div>
 
                                     <div className="relative p-6 flex-auto">
+                                        <button className="lg:hidden underline italic" onClick={handleToggle}>
+                                            {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
+                                        </button>
                                         <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
                                             Participation au fork de l&apos;outil de prise de
                                             rendez-vous <Link href='https://easyappointments.org' target='_blank'
@@ -107,12 +117,14 @@ export default function InterhopProject() {
                                             d&apos;avoir la possibilité d&apos;annuler des rendez-vous sur une période
                                             donnée :
                                             <ol className="list-disc list-inside pl-2">
-                                                <li>Blocage de la période affectée dans le module de prise de rendez-vous.
+                                                <li>Blocage de la période affectée dans le module de prise de
+                                                    rendez-vous.
                                                 </li>
                                                 <li>Génération puis envoi d&apos;un mail à chaque patient concerné, ou
                                                     d&apos;un mail récapitulatif pour le personnel.
                                                 </li>
-                                                <li>Amélioration de l&apos;affichage du planning pour prendre en compte le
+                                                <li>Amélioration de l&apos;affichage du planning pour prendre en compte
+                                                    le
                                                     statut du rendez-vous (mise à jour auto).
                                                 </li>
                                             </ol>

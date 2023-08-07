@@ -11,11 +11,13 @@ import OdinLanding from "@/public/screens_apps/odin/landing_page.png"
 import BattleshipProject from "@/public/screens_apps/odin/battleship.png"
 import BattleshipDone from "@/public/screens_apps/odin/battleship_project.png"
 import Carousel from "@/components/animations/Carousel/Carousel";
+import {MobileCarousel} from "@/components/animations/Carousel/CarouselMobileModal";
 
 export default function OdinProject() {
 
     const images = [OdinLanding, BattleshipProject, BattleshipDone];
     const {showModal, cardVisible, openCard, toggleCard, openModal, handleOverlayClick} = useCardModal();
+    const {carouselVisibility, carouselStyling, openMobileCarousel, handleToggle} = MobileCarousel();
 
     return (
         <>
@@ -60,18 +62,25 @@ export default function OdinProject() {
                         }}
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-6xl max-h-full">
-                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
-                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
+                                <animated.div
+                                    className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
+                                    style={{
+                                        ...openMobileCarousel,
+                                    }}
+                                >
                                     <Carousel loop>
                                         {images.map((src, i) => {
                                             return (
-                                                <div className={'relative h-[36rem] w-44 flex-[0_0_100%]'} key={i}>
+                                                <div
+                                                    className={'relative lg:h-[36rem] lg:w-44 flex-[0_0_100%] h-[24rem] w-32'}
+                                                    key={i}>
                                                     <Image src={src} fill className="object-contain" alt="alt"/>
                                                 </div>
                                             );
                                         })}
                                     </Carousel>
-                                </div>
+                                </animated.div>
                                 <div
                                     className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                     <div className="p-5 border-b border-solid border-slate-200 rounded-t">
@@ -92,6 +101,9 @@ export default function OdinProject() {
                                     </div>
 
                                     <div className="relative p-6 flex-auto">
+                                        <button className="lg:hidden underline italic" onClick={handleToggle}>
+                                            {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
+                                        </button>
                                         <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
                                             <Link href='https://www.theodinproject.com/' target='_blank'
                                                   className="underline">Site</Link> ayant

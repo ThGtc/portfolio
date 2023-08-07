@@ -1,23 +1,25 @@
 import Image from "next/image";
 import EncheresLogo from "@/public/encheres.png";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Link from "next/link";
 import Carousel from "@/components/animations/Carousel/Carousel";
 import GithubLogo from "@/public/GitHub.png";
 import {githubEncheres} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
-import { animated } from "react-spring";
+import {animated} from "react-spring";
 import {CardLayout} from "@/components/projectsCards/CardLayout";
 import Accueil from "@/public/screens_apps/encheres/encheres_accueil.png"
 import Win from "@/public/screens_apps/encheres/encheres_ggenchere.png"
 import Register from "@/public/screens_apps/encheres/encheres_inscription.png"
 import New from "@/public/screens_apps/encheres/encheres_nvleenchere.png"
+import {MobileCarousel} from "@/components/animations/Carousel/CarouselMobileModal"
 
 export default function EniEncheresProject() {
 
     const images = [Register, Accueil, New, Win];
 
-    const { showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick } = useCardModal();
+    const {showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick} = useCardModal();
+    const {carouselVisibility, carouselStyling, openMobileCarousel, handleToggle} = MobileCarousel();
 
     return (
         <>
@@ -64,18 +66,22 @@ export default function EniEncheresProject() {
                         }}
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-5xl max-h-full">
-                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
-                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
-                                    <Carousel loop>
-                                        {images.map((src, i) => {
-                                            return (
-                                                <div className={'relative h-[30rem] w-28 flex-[0_0_100%]'} key={i}>
-                                                    <Image src={src} fill className="object-cover" alt="alt"/>
-                                                </div>
-                                            );
-                                        })}
-                                    </Carousel>
-                                </div>
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
+                                <animated.div
+                                    className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
+                                    style={{
+                                        ...openMobileCarousel,
+                                    }}
+                                ><Carousel loop>
+                                    {images.map((src, i) => {
+                                        return (
+                                            <div className={'relative h-[30rem] w-28 flex-[0_0_100%]'} key={i}>
+                                                <Image src={src} fill className="object-cover" alt="alt"/>
+                                            </div>
+                                        );
+                                    })}
+                                </Carousel>
+                                </animated.div>
                                 <div
                                     className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                     <div className="p-5 border-b border-solid border-slate-200 rounded-t">
@@ -96,16 +102,22 @@ export default function EniEncheresProject() {
                                     </div>
 
                                     <div className="relative p-6 flex-auto">
+                                        <button className="lg:hidden underline italic" onClick={handleToggle}>
+                                            {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
+                                        </button>
                                         <div className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
                                             Développement fullstack d&apos;un site d&apos;enchères :
                                             <ol className="list-disc list-inside">
-                                                <li>Gestion des utilisateurs (inscription, connexion, gestion/affichage des
+                                                <li>Gestion des utilisateurs (inscription, connexion, gestion/affichage
+                                                    des
                                                     profils).
                                                 </li>
-                                                <li>Mise en enchère d&apos;un objet : création, paramétrage du prix et date
+                                                <li>Mise en enchère d&apos;un objet : création, paramétrage du prix et
+                                                    date
                                                     de la fin de vente.
                                                 </li>
-                                                <li>Possibilité d&apos;enchérir (ou non) en fonction du nombre de crédits
+                                                <li>Possibilité d&apos;enchérir (ou non) en fonction du nombre de
+                                                    crédits
                                                     disponibles/
                                                 </li>
                                                 <li>Désignation automatique de l&apos;utilisateur
@@ -150,7 +162,8 @@ export default function EniEncheresProject() {
                             </div>
                         </div>
                     </animated.div>
-                    <div className={`opacity-50 fixed inset-0 z-40 bg-black transition-opacity duration-1000 ${cardVisible ? 'opacity-100' : 'opacity-0'}`}></div>
+                    <div
+                        className={`opacity-50 fixed inset-0 z-40 bg-black transition-opacity duration-1000 ${cardVisible ? 'opacity-100' : 'opacity-0'}`}></div>
                 </>
             ) : null}
         </>

@@ -14,7 +14,7 @@ export default function FadeInOnScroll({ children }: FadeInOnScrollProps) {
             if (sectionElement) {
                 const { top, bottom, height } = sectionElement.getBoundingClientRect();
                 const { innerHeight } = window;
-                const visibilityThreshold = innerWidth < 768 ? height * 0.1 : height * 0.4;
+                const visibilityThreshold = innerWidth < 768 ? height * 0.05 : height * 0.4;
                 if (top < innerHeight - visibilityThreshold && bottom > visibilityThreshold) {
                     setIsVisible(true);
                 } else {

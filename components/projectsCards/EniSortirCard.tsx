@@ -5,19 +5,21 @@ import Link from "next/link";
 import GithubLogo from "@/public/GitHub.png";
 import {githubSortir} from "@/components/HideThoseLinks";
 import {useCardModal} from "@/components/animations/CardsModal";
-import { animated } from "react-spring";
+import {animated} from "react-spring";
 import {CardLayout} from "@/components/projectsCards/CardLayout";
 import Accueil from "@/public/screens_apps/sorties/Sortir_login.png"
 import ListeSorties from "@/public/screens_apps/sorties/Sortir_listesorties.png"
 import NvleSortie from "@/public/screens_apps/sorties/Sortir_creationsortie.png"
 import NvleSortieCree from "@/public/screens_apps/sorties/Sortir_sortienouvelle.png"
 import Carousel from "@/components/animations/Carousel/Carousel";
+import {MobileCarousel} from "@/components/animations/Carousel/CarouselMobileModal";
 
 export default function EniSortirProject() {
 
     const images = [Accueil, ListeSorties, NvleSortie, NvleSortieCree];
 
-    const { showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick } = useCardModal();
+    const {showModal, cardVisible, openCard, toggleCard, openModal, closeModal, handleOverlayClick} = useCardModal();
+    const {carouselVisibility, carouselStyling, openMobileCarousel, handleToggle} = MobileCarousel();
 
     return (
         <>
@@ -62,18 +64,26 @@ export default function EniSortirProject() {
                         }}
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-5xl max-h-full">
-                            <div className={'lg:grid lg:grid-cols-[1fr_1fr]'}>
-                                <div className="mx-auto my-2 lg:flex flex-col justify-center hidden">
+                            <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
+                                <animated.div
+                                    className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
+                                    style={{
+                                        ...openMobileCarousel,
+                                    }}
+                                >
                                     <Carousel loop>
                                         {images.map((src, i) => {
                                             return (
-                                                <div className={'relative h-[30rem] w-28 flex-[0_0_100%]'} key={i}>
-                                                    <Image src={src} fill className="object-cover" alt="alt"/>
+                                                <div
+                                                    className={'relative lg:h-[30rem] lg:w-28 flex-[0_0_100%] h-[20rem] w-28 '}
+                                                    key={i}>
+                                                    <Image src={src} fill className="object-contain object-left"
+                                                           alt="alt"/>
                                                 </div>
                                             );
                                         })}
                                     </Carousel>
-                                </div>
+                                </animated.div>
                                 <div
                                     className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none dark:border-gray-700 dark:bg-slate-900">
                                     <div className="p-5 border-b border-solid border-slate-200 rounded-t">
@@ -94,8 +104,12 @@ export default function EniSortirProject() {
                                     </div>
 
                                     <div className="relative p-6 flex-auto">
+                                        <button className="lg:hidden underline italic" onClick={handleToggle}>
+                                            {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
+                                        </button>
                                         <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Développement fullstack d&apos;un site pour organiser des sorties entre élèves :
+                                            Développement fullstack d&apos;un site pour organiser des sorties entre
+                                            élèves :
                                             <ol className="list-disc list-inside">
                                                 <li>Gestion des utilisateurs (connexion, &apos;se souvenir de moi&apos;,
                                                     gestion/affichage des profils).
@@ -103,10 +117,12 @@ export default function EniSortirProject() {
                                                 <li>Création, modification ou inscription à une sortie jusqu&apos;à
                                                     une date limite ou nombre maximal de participants atteints.
                                                 </li>
-                                                <li>Filtre de la liste des sorties selon plusieurs paramètres : date, nombre
+                                                <li>Filtre de la liste des sorties selon plusieurs paramètres : date,
+                                                    nombre
                                                     de participants, lieux...
                                                 </li>
-                                                <li>Changement automatique du statut de la sortie : en création, ouverte aux
+                                                <li>Changement automatique du statut de la sortie : en création, ouverte
+                                                    aux
                                                     inscription, complète, en cours, terminée.
                                                 </li>
                                             </ol>
