@@ -24,9 +24,10 @@ export default function Hero() {
                 id="landingArea"
             >
                 <div className="dark:text-gray-300 max-w-2xl">
-                    <p className="text-3xl lg:text-5xl lg:leading-normal">
-                        Hello there 👋 {/* General Kenobi */}
-                    </p>
+                    <div className="text-3xl lg:text-5xl lg:leading-normal flex flex-row gap-2">
+                        <p>Hello there</p> {/* General Kenobi */}
+                        <p className="animate-wave">👋</p>
+                    </div>
 
                     <p className="text-center text-lg py-7 italic font-semibold dark:text-gray-400 sm:text-xl">
                         Après m&apos;être initié au développement web en autonomie, j&apos;ai
