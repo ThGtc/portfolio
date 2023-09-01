@@ -21,6 +21,7 @@
 /components/HideThoseLinks.tsx
 /styles/Home.module.css
 .idea
+/components/HeroCopy.tsx
 
 # debug
 npm-debug.log*

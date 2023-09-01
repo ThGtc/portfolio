@@ -2,8 +2,10 @@ import {Inter} from 'next/font/google'
 import {siteTitle} from '@/components/Layout'
 import {animateScroll as scroll} from 'react-scroll';
 import ContactCompo from "@/components/Contact";
-import {eniLevelUpLink, linkedinLink} from "@/components/HideThoseLinks";
+import {eniLevelUpLink} from "@/components/HideThoseLinks";
 import Link from "next/link";
+import {DotGrid} from "@/components/animations/GridBackground";
+import {TextReveal} from "@/components/animations/TextReveal";
 
 const inter = Inter({subsets: ['latin']})
 const title = siteTitle + "Home";
@@ -20,25 +22,40 @@ export default function Hero() {
     return (
         <>
             <section
-                className="max-w-3xl mx-auto pt-2 min-h-screen sm:min-h-fit px-4"
+                className="relative overflow-hidden max-w-3xl mx-auto min-h-screen sm:min-h-fit px-4 lg:grid lg:grid-cols-2"
                 id="landingArea"
             >
-                <div className="dark:text-gray-300 max-w-2xl">
-                    <div className="text-3xl lg:text-5xl lg:leading-normal flex flex-row gap-2">
-                        <p>Hello there</p> {/* General Kenobi */}
-                        <p className="animate-wave">👋</p>
-                    </div>
-
-                    <p className="text-center text-lg py-7 italic font-semibold dark:text-gray-400 sm:text-xl">
-                        Après m&apos;être initié au développement web en autonomie, j&apos;ai
-                        intégré l&apos;ENI de Rennes pour renforcer mes compétences en programmation.
-                        <br/> <br/>
-                        Souhaitant y poursuivre ma progression en
-                        tant que <Link className="underline" href={eniLevelUpLink} target={"_blank"}>Concepteur Développeur d&apos;Applications</Link>, je
-                        suis à la recherche d&apos;une opportunité d&apos;alternance d&apos;une durée d&apos;un an
-                        afin de me spécialiser dans la stack Java/Angular, en restant bien sûr ouvert aux autres technos.
+                <div className="dark:text-gray-100 max-w-2xl lg:w-max mt-4">
+                    <TextReveal>
+                        <div
+                            className="text-3xl lg:text-5xl lg:leading-normal flex flex-row gap-2 relative z-10 font-semibold dark:text-purple-900 text-purple-950">
+                            <p>Hello there</p> {/* General Kenobi */}
+                            <p className="animate-wave">👋</p>
+                        </div>
+                    </TextReveal>
+                    <TextReveal>
+                        <h1 className="md:text-2xl text-xl mt-4 leading-[1.1]">
+                            Je suis Thibaut Gentric.
+                        </h1>
+                    </TextReveal>
+                    <div
+                        className="text-center text-lg py-7 italic font-semibold dark:text-gray-300 sm:text-xl relative z-10">
+                        <TextReveal>
+                            <p>Après m&apos;être initié au développement web en autonomie, j&apos;ai
+                                rejoint l&apos;ENI de Rennes pour renforcer mes compétences en programmation.</p>
+                        </TextReveal>
                         <br/>
-                    </p>
+                        <TextReveal>
+                            <p>
+                                Souhaitant y poursuivre ma progression en
+                                tant que <Link className="underline" href={eniLevelUpLink} target={"_blank"}>Concepteur
+                                Développeur d&apos;Applications</Link>, je
+                                suis à la recherche d&apos;une opportunité d&apos;alternance d&apos;une durée d&apos;un
+                                an
+                                afin de me spécialiser sur les technos Java ou PHP.
+                            </p>
+                        </TextReveal>
+                    </div>
                     <ContactCompo/>
                     <p className="text-center text-xl py-10 italic font-semibold dark:text-gray-400">
                         <button onClick={onBtnClick} className="pt-5 text-4xl sm:text-6xl inline after:">
@@ -50,10 +67,7 @@ export default function Hero() {
                         </button>
                     </p>
                 </div>
-                <div
-                    className="flex justify-center lg:justify-between items-center flex-wrap py-10 sm:py-14"
-                >
-                </div>
+                <DotGrid/>
             </section>
         </>
     )

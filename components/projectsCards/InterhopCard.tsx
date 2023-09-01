@@ -33,7 +33,7 @@ export default function InterhopProject() {
                         Interhop
                     </h3>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        Stage developpeur web (2 mois) au sein d&apos;Interhop, sur le projet Easy!Appointments
+                        Stage développeur web (2 mois) sur le projet Easy!Appointments.
                     </p>
                     <button
                         type="button"
@@ -105,31 +105,33 @@ export default function InterhopProject() {
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
                                         <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Participation au fork de l&apos;outil de prise de
-                                            rendez-vous <Link href='https://easyappointments.org' target='_blank'
-                                                              className="underline">Easy!Appointments</Link> par <Link
+                                            L’objectif est d&apos;adapter l&apos;outil open-source
+                                            <Link href='https://easyappointments.org' target='_blank'
+                                                  className="underline"> Easy!Appointments</Link> aux
+                                            besoins de <Link
                                             href='https://interhop.org/' target='_blank'
-                                            className="underline">l&apos;association Interhop</Link>.<br/><br/>
+                                            className="underline">l&apos;association Interhop</Link>, en contribuant au fork de
+                                            celui-ci.<br/><br/>
 
-                                            Améliorations côté front (traductions, évolution de formulaires).<br/>
-                                            Création d&apos;une fonctionnalité &apos;imprévu&apos; permettant depuis un
-                                            agenda
-                                            d&apos;avoir la possibilité d&apos;annuler des rendez-vous sur une période
-                                            donnée :
+                                            <b><u>Projet principal</u></b> : création d&apos;une fonctionnalité&apos;imprévu&apos;
+                                            permettant, depuis un planning, d&apos;avoir la possibilité d&apos;annuler
+                                            des rendez-vous sur une période donnée. Elle se découpe en 4 étapes : <br/><br/>
                                             <ol className="list-disc list-inside pl-2">
-                                                <li>Blocage de la période affectée dans le module de prise de
-                                                    rendez-vous.
+                                                <li>Identifier puis bloquer la période affectée dans le module de prise
+                                                    de rendez-vous.
                                                 </li>
-                                                <li>Génération puis envoi d&apos;un mail à chaque patient concerné, ou
-                                                    d&apos;un mail récapitulatif pour le personnel.
+                                                <li>Générer puis envoyer un mail à chaque patient disposant d’un rdv ;
+                                                    puis un mail récapitulatif à chaque membre du personnel affecté.
                                                 </li>
-                                                <li>Amélioration de l&apos;affichage du planning pour prendre en compte
-                                                    le
-                                                    statut du rendez-vous (mise à jour auto).
+                                                <li>Création d&apos;un statut rattaché au rendez-vous, mis à jour
+                                                    automatiquement à chaque étape du rendez-vous (planifié, honoré, annulé…).
+                                                </li>
+                                                <li>
+                                                    Amélioration de l&apos;affichage du planning afin de prendre en compte ce statut.
                                                 </li>
                                             </ol>
                                             <br/>
-                                            <p className="text-2xl italic pb-2">Technos : </p>
+                                            <p className="text-2xl italic pb-2">Technos utilisées : </p>
                                             <div className="flex flex-col gap-3 justify-evenly md:flex-row">
                                                 <p>PHP / CodeIgniter</p>
                                                 <p>SQL</p>

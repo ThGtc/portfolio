@@ -13,7 +13,7 @@ const title = siteTitle + "About";
 export default function ContactCompo() {
     return (
         <>
-            <div className="flex flex-col sm:flex-row justify-center gap-10">
+            <div className="flex flex-col sm:flex-row justify-center gap-10 relative z-10">
                 <Link href={linkedinLink} target={"_blank"}
                       className="grid justify-items-center">
                     <Image src={Linkedin} alt={"Linkedin"} height={48}/>

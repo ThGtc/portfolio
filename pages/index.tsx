@@ -1,6 +1,5 @@
 import {Inter} from 'next/font/google'
 import {Layout, siteTitle} from '@/components/Layout'
-// @ts-ignore
 import {animateScroll as scroll} from "react-scroll";
 import Hero from '@/components/Hero';
 import Tech from '@/components/TechStack';
