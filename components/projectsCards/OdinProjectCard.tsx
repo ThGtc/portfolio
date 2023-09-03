@@ -75,7 +75,8 @@ export default function OdinProject() {
                                                 <div
                                                     className={'relative lg:h-[36rem] lg:w-44 flex-[0_0_100%] h-[24rem] w-32'}
                                                     key={i}>
-                                                    <Image src={src} fill className="object-contain" alt="alt"/>
+                                                    <Image src={src} fill className="object-contain" priority={true}
+                                                           alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                                 </div>
                                             );
                                         })}
@@ -104,19 +105,33 @@ export default function OdinProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            <Link href='https://www.theodinproject.com/' target='_blank'
-                                                  className="underline">Site</Link> ayant
-                                            permis de m&apos;initier au développement web, avant la formation à
-                                            l&apos;ENI.
-                                            <br/>
-                                            Cela impliquait donc de nombreux minis-projets allant du HTML le plus
-                                            basique
-                                            à des projets un peu plus avancés, en vanilla JS.
-                                            Le code n&apos;est clairement pas le plus beau ni le plus optimisé,
-                                            mais je le garde pour la postérité et me rappeler du chemin parcouru. :)
-                                        </p>
-                                        <p className="text-2xl italic pb-2">Technos : </p>
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p><strong><u>Objectif :</u></strong> M&apos;initier au développement web,
+                                                en amont de la reconversion et la formation à l&apos;ENI. La principale
+                                                ressource
+                                                était <Link href='https://www.theodinproject.com/' target='_blank'
+                                                            className="underline">The Odin Project</Link>, me permettant
+                                                d&apos;apprendre en
+                                                suivant une logique de progression basée sur la pratique :</p> <br/>
+
+                                            <ol className="list-disc list-inside">
+                                                <li>Réalisation de plusieurs projets front-end,
+                                                    permettant de prendre en main le HTML/CSS et la mise en page (grid,
+                                                    flexbox…).
+                                                </li>
+                                                <li>Apprentissage du Javascript puis construction
+                                                    de projets dynamiques manipulant le DOM, la programmation asynchrone
+                                                    et l&apos;emploi d’API existantes.
+                                                </li>
+                                                <li>Initiation au TDD (test driven development) en Javascript avec Jest.
+                                                </li>
+                                                <li>Prise en main de Git avec la mise en ligne de l&apos;ensemble des
+                                                    mini-projets dans un monorepo.
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        <p className="text-2xl italic pb-2">Technos utilisées : </p>
                                         <div className="flex flex-col gap-3 justify-evenly md:flex-row">
                                             <p>HTML</p>
                                             <p>CSS</p>
@@ -153,5 +168,6 @@ export default function OdinProject() {
                 </>
             ) : null}
         </>
+
     )
 }

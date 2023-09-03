@@ -65,7 +65,7 @@ export default function EniEncheresProject() {
                             ...openCard,
                         }}
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-5xl max-h-full">
+                        <div className="relative w-auto my-6 mx-auto max-w-6xl max-h-full">
                             <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
                                 <animated.div
                                     className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
@@ -76,7 +76,8 @@ export default function EniEncheresProject() {
                                     {images.map((src, i) => {
                                         return (
                                             <div className={'relative h-[30rem] w-28 flex-[0_0_100%]'} key={i}>
-                                                <Image src={src} fill className="object-cover" alt="alt"/>
+                                                <Image src={src} fill className="object-cover" priority={true}
+                                                       alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                             </div>
                                         );
                                     })}
@@ -105,35 +106,39 @@ export default function EniEncheresProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <div className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Développement fullstack d&apos;un site d&apos;enchères :
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p><strong><u>Objectif :</u></strong> Développement fullstack en Java, avec
+                                                le framework JEE,
+                                                d&apos;une application web d’enchères, s&apos;appuyant sur une
+                                                architecture en couche</p> <br/>
+                                            <p> Fonctionnalités réalisées :</p> <br/>
                                             <ol className="list-disc list-inside">
                                                 <li>Gestion des utilisateurs (inscription, connexion, gestion/affichage
                                                     des
                                                     profils).
                                                 </li>
-                                                <li>Mise en enchère d&apos;un objet : création, paramétrage du prix et
-                                                    date
-                                                    de la fin de vente.
+                                                <li>Création d&apos;une enchère : fixer la mise à prix, la date
+                                                    d&apos;ouverture
+                                                    et de fermeture de l&apos;enchère, ajout de photos.
                                                 </li>
-                                                <li>Possibilité d&apos;enchérir (ou non) en fonction du nombre de
-                                                    crédits
-                                                    disponibles/
+                                                <li>Une fois l’enchère publiée, avoir la possibilité d&apos;enchérir (ou
+                                                    non)
+                                                    en fonction du nombre de crédits de l&apos;utilisateur connecté.
                                                 </li>
-                                                <li>Désignation automatique de l&apos;utilisateur
-                                                    remportant l&apos;enchère une fois la date/heure de fin atteinte.
+                                                <li>Désignation automatique du vainqueur de
+                                                    l&apos;enchère une fois la date et heure de fin atteinte.
                                                 </li>
-                                                <li>Architecture en couches.</li>
                                             </ol>
                                             <br/>
-                                            <p className="text-2xl italic pb-2">Technos : </p>
-                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                                <p>Java / JEE</p>
-                                                <p>SQL</p>
-                                                <p>HTML / JSP</p>
-                                                <p>CSS / Bootstrap</p>
-                                                <p>Vanilla JS</p>
-                                            </div>
+                                        </div>
+                                        <p className="text-2xl italic pb-2">Technos utilisées : </p>
+                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                            <p>Java / JEE</p>
+                                            <p>SQL</p>
+                                            <p>HTML / JSP</p>
+                                            <p>CSS / Bootstrap</p>
+                                            <p>Vanilla JS</p>
                                         </div>
                                     </div>
 

@@ -74,7 +74,8 @@ export default function PortfolioProject() {
                                                 <div
                                                     className={'relative lg:h-[36rem] lg:w-64 flex-[0_0_100%] h-[24rem] w-28'}
                                                     key={i}>
-                                                    <Image src={src} fill className="object-contain" alt="alt"/>
+                                                    <Image src={src} fill className="object-contain" priority={true}
+                                                           alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                                 </div>
                                             );
                                         })}
@@ -103,22 +104,33 @@ export default function PortfolioProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Réalisation d&apos;un portfolio personnel, projet full front-end, avec des
-                                            technos découvertes en solo : NextJS et Tailwind CSS.
-                                            <br/><br/>
-                                            Il intègre des animations telles qu&apos;un thème sombre/clair,
-                                            des modals boxes pour les projets, avec carousel pour les illustrer, et bien
-                                            sûr le
-                                            responsive design pour l&apos;affichage mobile.
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p><strong><u>Objectif :</u></strong> Projet full front-end, me permettant
+                                                de pratiquer des technologies apprises en autodidacte, NextJS et
+                                                Tailwind CSS,
+                                                puis la mise en ligne de celui-ci</p> <br/>
                                             <br/>
-                                            <p className="text-2xl italic py-5">Technos : </p>
-                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                                <p>React / Next.JS</p>
-                                                <p>Typescript</p>
-                                                <p>CSS / Tailwind CSS</p>
-                                            </div>
-                                        </p>
+                                            <ol className="list-disc list-inside">
+                                                <li>Mise en place d’un mode sombre/clair (par défaut sombre),
+                                                    et adaptation des composants en conséquence.
+                                                </li>
+                                                <li>Création d&apos;animations, par exemple des modal boxes pour les
+                                                    projets,
+                                                    avec carousel pour les illustrer.
+                                                </li>
+                                                <li>Responsive design pour l&apos;affichage mobile, avec éléments
+                                                    adaptés (hamburger button pour header, carousels masqués par
+                                                    défaut…).
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        <p className="text-2xl italic py-5">Technos utilisées : </p>
+                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                            <p>React / Next.JS</p>
+                                            <p>Typescript</p>
+                                            <p>CSS / Tailwind CSS</p>
+                                        </div>
                                     </div>
 
                                     <div
@@ -149,6 +161,7 @@ export default function PortfolioProject() {
                     <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
                 </>
             ) : null}
+
         </>
     )
 }

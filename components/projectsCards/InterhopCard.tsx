@@ -75,7 +75,8 @@ export default function InterhopProject() {
                                                 <div
                                                     className={'relative lg:h-[36rem] lg:w-36 flex-[0_0_100%] h-[24rem] w-24'}
                                                     key={i}>
-                                                    <Image src={src} fill className="object-cover" alt="alt"/>
+                                                    <Image src={src} fill className="object-cover" priority={true}
+                                                           alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                                 </div>
                                             );
                                         })}
@@ -104,42 +105,48 @@ export default function InterhopProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            L’objectif est d&apos;adapter l&apos;outil open-source
-                                            <Link href='https://easyappointments.org' target='_blank'
-                                                  className="underline"> Easy!Appointments</Link> aux
-                                            besoins de <Link
-                                            href='https://interhop.org/' target='_blank'
-                                            className="underline">l&apos;association Interhop</Link>, en contribuant au fork de
-                                            celui-ci.<br/><br/>
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p>L&apos;objectif est d&apos;adapter l&apos;outil open-source de prise de
+                                                rendez-vous <Link href='https://easyappointments.org' target='_blank'
+                                                                  className="underline">Easy!Appointments</Link> aux
+                                                besoins
+                                                de <Link
+                                                    href='https://interhop.org/' target='_blank'
+                                                    className="underline">l&apos;association Interhop</Link>.</p><br/>
 
-                                            <b><u>Projet principal</u></b> : création d&apos;une fonctionnalité&apos;imprévu&apos;
-                                            permettant, depuis un planning, d&apos;avoir la possibilité d&apos;annuler
-                                            des rendez-vous sur une période donnée. Elle se découpe en 4 étapes : <br/><br/>
-                                            <ol className="list-disc list-inside pl-2">
+                                            <strong><u>Projet principal :</u></strong> Création d&apos;une
+                                            fonctionnalité
+                                            &apos;imprévu&apos; permettant depuis un planning d&apos;avoir la
+                                            possibilité
+                                            d&apos;annuler des rendez-vous sur une période donnée. Elle se découpe en 4
+                                            étapes : <br/> <br/>
+                                            <ol className="list-decimal list-inside pl-2">
                                                 <li>Identifier puis bloquer la période affectée dans le module de prise
                                                     de rendez-vous.
                                                 </li>
                                                 <li>Générer puis envoyer un mail à chaque patient disposant d’un rdv ;
-                                                    puis un mail récapitulatif à chaque membre du personnel affecté.
-                                                </li>
-                                                <li>Création d&apos;un statut rattaché au rendez-vous, mis à jour
-                                                    automatiquement à chaque étape du rendez-vous (planifié, honoré, annulé…).
+                                                    puis un mail récapitulatif à chaque membre du personnel concerné.
                                                 </li>
                                                 <li>
-                                                    Amélioration de l&apos;affichage du planning afin de prendre en compte ce statut.
+                                                    Création d&apos;un statut rattaché au rendez-vous, mis à jour
+                                                    automatiquement
+                                                    à chaque étape du rendez-vous (planifié, honoré, annulé…).
+                                                </li>
+                                                <li>Amélioration de l&apos;affichage du planning pour prendre en compte
+                                                    ce nouveau statut.
                                                 </li>
                                             </ol>
                                             <br/>
-                                            <p className="text-2xl italic pb-2">Technos utilisées : </p>
-                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                                <p>PHP / CodeIgniter</p>
-                                                <p>SQL</p>
-                                                <p>HTML</p>
-                                                <p>CSS / Bootstrap</p>
-                                                <p>JS / JQuery</p>
-                                            </div>
-                                        </p>
+                                        </div>
+                                        <p className="text-2xl italic pb-2">Technos utilisées : </p>
+                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                            <p>PHP / CodeIgniter</p>
+                                            <p>SQL</p>
+                                            <p>HTML</p>
+                                            <p>CSS / Bootstrap</p>
+                                            <p>JS / JQuery</p>
+                                        </div>
                                     </div>
 
                                     <div

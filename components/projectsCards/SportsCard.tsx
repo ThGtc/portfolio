@@ -32,7 +32,7 @@ export default function SportsProject() {
                         Sports App
                     </h3>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        Fullstack side project
+                        API project
                     </p>
                     <button
                         type="button"
@@ -74,7 +74,8 @@ export default function SportsProject() {
                                                 <div
                                                     className={'relative lg:h-[36rem] lg:w-64 flex-[0_0_100%] h-[24rem] w-48'}
                                                     key={i}>
-                                                    <Image src={src} fill className="object-contain" alt="alt"/>
+                                                    <Image src={src} fill className="object-contain" priority={true}
+                                                           alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                                 </div>
                                             );
                                         })}
@@ -95,7 +96,7 @@ export default function SportsProject() {
                                             </button>
                                         </div>
                                         <p className="italic font-semibold dark:text-gray-400">
-                                            Side project - en cours
+                                            API Project - avril 2023
                                         </p>
                                     </div>
 
@@ -103,29 +104,33 @@ export default function SportsProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Développement fullstack d&apos;une application permettant de suivre ses
-                                            activités sportives :
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p><strong><u>Objectif :</u></strong> Prendre en main la création d’API REST
+                                                en Java, avec le framework Spring,
+                                                puis leur utilisation dans une application web Angular.</p> <br/>
+                                            <p> Fonctionnalités réalisées :</p> <br/>
                                             <ol className="list-disc list-inside">
-                                                <li>Création d&apos;API back-end (utilisateurs, activités et sports)
-                                                    connecté à une base de donnée MySQL.
+                                                <li>Création d&apos;API back-end (gestion des utilisateurs, des
+                                                    activités, des sports…)
+                                                    relié à une base de donnée MySQL.
                                                 </li>
-                                                <li>API gérant également inscription & authentification.</li>
-                                                <li>Interface front-end réalisée avec Angular : permettant par exemple
-                                                    de
-                                                    s&apos;inscrire, se connecter, créer ou consulter des
-                                                    activités, en supprimer ou en mettre à jour... Puis se déconnecter.
+                                                <li>Gestion de la sécurité avec l’inscription puis l’authentification.
+                                                </li>
+                                                <li>Connexion à une interface front-end réalisée avec Angular.
+                                                    Elle permet de s&apos;inscrire, se connecter/déconnecter,
+                                                    créer ou consulter des activités, en supprimer ou en mettre à jour…
                                                 </li>
                                             </ol>
                                             <br/>
-                                            <p className="text-2xl italic pb-2">Technos : </p>
-                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                                <p>Java / Spring </p>
-                                                <p>SQL</p>
-                                                <p>Angular</p>
-                                                <p>Typescript</p>
-                                            </div>
-                                        </p>
+                                        </div>
+                                        <p className="text-2xl italic pb-2">Technos utilisées : </p>
+                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                            <p>Java / Spring </p>
+                                            <p>SQL</p>
+                                            <p>Angular</p>
+                                            <p>Typescript</p>
+                                        </div>
                                     </div>
 
                                     <div
@@ -156,6 +161,7 @@ export default function SportsProject() {
                     <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
                 </>
             ) : null}
+
         </>
     )
 }

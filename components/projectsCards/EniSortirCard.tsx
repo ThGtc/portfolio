@@ -63,7 +63,7 @@ export default function EniSortirProject() {
                             ...openCard,
                         }}
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-5xl max-h-full">
+                        <div className="relative w-auto my-6 mx-auto max-w-6xl max-h-full">
                             <div className={'lg:grid lg:grid-cols-[1fr_1fr] grid grid-rows-1'}>
                                 <animated.div
                                     className={carouselVisibility ? carouselStyling : carouselStyling + " hidden"}
@@ -78,7 +78,8 @@ export default function EniSortirProject() {
                                                     className={'relative lg:h-[30rem] lg:w-28 flex-[0_0_100%] h-[20rem] w-28 '}
                                                     key={i}>
                                                     <Image src={src} fill className="object-contain object-left"
-                                                           alt="alt"/>
+                                                           priority={true}
+                                                           alt="Les images peuvent rencontrer des problèmes pour charger correctement, il s'agit d'un bug connu et en train d'être corrigé !"/>
                                                 </div>
                                             );
                                         })}
@@ -107,35 +108,42 @@ export default function EniSortirProject() {
                                         <button className="lg:hidden underline italic" onClick={handleToggle}>
                                             {carouselVisibility ? 'Masquer les screens' : 'Voir des screens de l\'app'}
                                         </button>
-                                        <p className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-                                            Développement fullstack d&apos;un site pour organiser des sorties entre
-                                            élèves :
+                                        <div
+                                            className="my-4 text-lg leading-relaxed text-gray-700 dark:text-gray-400 lg:max-h-[50vh] lg:overflow-scroll lg:no-scrollbar">
+                                            <p><strong><u>Objectif :</u></strong> Développement fullstack en PHP/Symfony
+                                                d’un site web permettant d’organiser des sorties entre élèves, construit
+                                                sur le modèle MVC.</p> <br/>
+
+                                            <p> Fonctionnalités réalisées :</p> <br/>
                                             <ol className="list-disc list-inside">
                                                 <li>Gestion des utilisateurs (connexion, &apos;se souvenir de moi&apos;,
-                                                    gestion/affichage des profils).
+                                                    affichage et gestion des profils utilisateurs).
                                                 </li>
-                                                <li>Création, modification ou inscription à une sortie jusqu&apos;à
-                                                    une date limite ou nombre maximal de participants atteints.
+                                                <li>Création, modification puis publication d&apos;une sortie
                                                 </li>
-                                                <li>Filtre de la liste des sorties selon plusieurs paramètres : date,
-                                                    nombre
-                                                    de participants, lieux...
+                                                <li>Rendre possible l&apos;inscription à une sortie seulement
+                                                    jusqu&apos;à
+                                                    une date limite, ou bien lorsque le nombre maximal de participants
+                                                    est atteint.
+                                                </li>
+                                                <li>Filtrer la liste des sorties selon un ou plusieurs paramètres :
+                                                    date, nombre de participants, lieux…
                                                 </li>
                                                 <li>Changement automatique du statut de la sortie : en création, ouverte
                                                     aux
-                                                    inscription, complète, en cours, terminée.
+                                                    inscription, jauge max. atteinte, en cours, terminée.
                                                 </li>
                                             </ol>
                                             <br/>
-                                            <p className="text-2xl italic pb-2">Technos : </p>
-                                            <div className="flex flex-col gap-3 justify-evenly md:flex-row">
-                                                <p>PHP / Symfony</p>
-                                                <p>SQL / Doctrine ORM</p>
-                                                <p>HTML / Twig</p>
-                                                <p>CSS / Bootstrap</p>
-                                                <p>Vanilla JS</p>
-                                            </div>
-                                        </p>
+                                        </div>
+                                        <p className="text-2xl italic pb-2">Technos utilisées : </p>
+                                        <div className="flex flex-col gap-3 justify-evenly md:flex-row">
+                                            <p>PHP / Symfony</p>
+                                            <p>SQL / Doctrine ORM</p>
+                                            <p>HTML / Twig</p>
+                                            <p>CSS / Bootstrap</p>
+                                            <p>Vanilla JS</p>
+                                        </div>
                                     </div>
 
                                     <div
